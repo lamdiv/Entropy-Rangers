@@ -78,7 +78,7 @@ function Profile() {
 
           <div className="w-full flex flex-col space-y-10">
             {/* Event 1 */}
-            <div className="flex w-full flex-col space-y-5 justify-between sm:flex-row mx-auto sm:space-y-0 md:space-x-10 ">
+            <div className="flex w-full flex-col space-y-5 justify-between md:justify-start sm:flex-row mx-auto sm:space-y-0 md:space-x-10 ">
               {/* <!--  Image --> */}
               <div className="w-full sm:w-1/3">
                 <div className="relative w-full h-[150px]">
@@ -134,7 +134,7 @@ function Profile() {
             </div>
 
             {/* Event 2 */}
-            <div className="flex w-full flex-col space-y-5 justify-between sm:flex-row mx-auto sm:space-y-0 md:space-x-10 ">
+            <div className="flex w-full flex-col space-y-5 justify-between md:justify-start sm:flex-row mx-auto sm:space-y-0 md:space-x-10 ">
               {/* <!--  Image --> */}
               <div className="w-full sm:w-1/3">
                 <div className="relative w-full h-[150px]">
