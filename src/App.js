@@ -8,6 +8,7 @@ import Signup from "./components/Authentication/Signup";
 import ForgetPassword from "./components/Authentication/ForgetPassword";
 import { useState } from "react";
 import CreateEvent from "./components/CreateEvent/CreateEvent";
+import Profile from "./components/Authentication/Profile";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route exact path="/account/login" element={<Login />} />
         <Route exact path="/account/register" element={<Signup />} />
         <Route exact path="/account/forget-password" element={<ForgetPassword />} />
+        <Route exact path="/account/user/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </Router>

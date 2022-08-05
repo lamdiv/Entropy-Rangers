@@ -73,7 +73,7 @@ function Navbar(props) {
               Create an Event
             </div>
             <Link
-              to="/account/login"
+              to="/account/user/profile"
               className="hidden py-2 px-6 font-bold text-white bg-primary rounded-full baseline hover:bg-primaryDark md:block"
             >
               <div className="flex space-x-3 items-center">
@@ -90,7 +90,7 @@ function Navbar(props) {
                   />
                 </svg>
 
-                <p className="text-md">Login</p>
+                <p className="text-md">profile</p>
               </div>
             </Link>
           </div>
@@ -162,7 +162,7 @@ function Navbar(props) {
             </div>
 
             <Link
-              to="/account/login"
+              to="/account/user/profile"
               className="py-2 px-6 font-bold text-white bg-primary rounded-full baseline hover:bg-primaryDark md:block"
             >
               <div className="flex space-x-3 items-center">
@@ -180,7 +180,7 @@ function Navbar(props) {
                   />
                 </svg>
 
-                <p className="text-md">Login</p>
+                <p className="text-md">profile</p>
               </div>
             </Link>
           </div>

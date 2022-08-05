@@ -135,18 +135,18 @@ function Home() {
                 <div className="flex w-full justify-between space-x-2">
                   <Link
                     to="/"
-                    className="p-2 w-1/3 text-sm lg:text-xl text-center self-center font-bold text-white bg-primaryDark rounded-xl"
+                    className="p-2 w-1/3 h-full text-sm lg:text-xl text-center self-center font-bold text-white bg-primaryDark rounded-xl"
                   >
                     View
                     <br />
                     Details
                   </Link>
-                  <div className="p-2 w-1/3 text-sm text-center text-[#0400C8] bg-[#F3F2FF] rounded-xl">
+                  <div className="p-2 w-1/3 h-full text-sm text-center text-[#0400C8] bg-[#F3F2FF] rounded-xl">
                     <span className="text-md lg:text-xl font-bold">69</span>
                     <br />
                     People Joined
                   </div>
-                  <div className="p-2 w-1/3  text-sm text-center text-[#FF0000] bg-[#FFEEEE] rounded-xl">
+                  <div className="p-2 w-1/3 h-full  text-sm text-center text-[#FF0000] bg-[#FFEEEE] rounded-xl">
                     <span className="text-md lg:text-xl font-bold">250 kg</span>
                     <br />
                     Co2 Calculated
