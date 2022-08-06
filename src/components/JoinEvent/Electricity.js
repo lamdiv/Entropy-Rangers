@@ -1,7 +1,54 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 function Electricity(props) {
+  const SubmitFormHandler = (e) =>  {
+    e.preventDefault();
+
+    // REQUEST SAMPLE
+    const sample_json = {
+      "source_location_lon": 0,
+      "destination_event_lat": 0,
+      "source_airport_lon": 0,
+      "destination_airport_lat": 0,
+      "category_home_to_airport": "private",
+      "vechicle_home_to_airport": "car",
+      "size_home_to_airport": "string",
+      "unit_home_to_airport": "string",
+      "factor_home_to_airport": 0,
+      "source_airport_to_airport": "domestic",
+      "class_airport_to_airport": "average",
+      "unit_airport_to_airport": "string",
+      "distance_airport_to_airport": "string",
+      "factor_airport_to_airport": 0,
+      "category_airport_to_event": "private",
+      "vechicle_airport_to_event": "car",
+      "unit_airport_to_event": "string",
+      "size_airport_to_event": "string",
+      "factor_airport_to_event": 0,
+      "source_diet": "vegan",
+      "factor_diet": 0,
+      "unit_diet": "string",
+      "source_electricity": "renewable",
+      "factor_electricity": 0,
+      "unit_electricity": "string",
+      "event_id": 0,
+      "participants_id": 0
+    }
+
+    fetch('http://localhost:8000/calculators/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(sample_json)
+    }).then(() =>  {
+        console.log('New Caculator Posted!');
+        // history.go(-1)
+        // history.push('/event')
+    }
+
+    )
+  }
+
+
   return (
     <>
     <div className="mt-12 flex flex-col">
@@ -65,12 +112,12 @@ function Electricity(props) {
       >
         Back
       </h3>
-      <Link
-      to="/event"
+      <button
+      onClick={SubmitFormHandler}
         className="font-bold justify-end text-primary cursor-pointer text-lg"
       >
         Calculate Now
-      </Link>
+      </button>
     </div>
   </>
   )
