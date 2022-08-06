@@ -1,12 +1,52 @@
 import React from "react";
 
 function EventCategory(props) {
-
-  //Submission of form
-  const SubmitFormHandler = () =>{
-    console.log(props.values);
+  const SubmitFormHandler = (e) =>  {
+    console.log('props.values', props.values);
     props.nextStep();
+    e.preventDefault();
+    // const blog = {
+    //     title, 
+    //     body, 
+    //     author
+    // }
+    // console.log(blog);
+
+    // REQUEST SAMPLE
+    const sample_json = {
+      "name": "string",
+      "description": "string",
+      "lat": 0,
+      "lon": 0,
+      "year": 0,
+      "month": 0,
+      "day": 0,
+      "hour": 0,
+      "minute": 0,
+      "thumbnail": "string",
+      "user_id": 123,
+      "id": 0,
+      "created_at": "2022-08-06T12:53:17.993Z",
+      "modified_at": "2022-08-06T12:53:17.993Z"
+    }
+
+    fetch('http://localhost:8000/events/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(sample_json)
+    }).then(() =>  {
+        console.log('New Blod Posted!');
+        // history.go(-1)
+        // history.push('/home')
+    }
+
+    )
   }
+  //Submission of form
+  // const SubmitFormHandler = () =>{
+  //   console.log(props.values);
+  //   props.nextStep();
+  // }
   return (
     <div className="py-8 px-4">
       <h2 className="text-2xl text-dark xxl:text-2xl font-bold">

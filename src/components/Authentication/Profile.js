@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import useFetch from "../../api/useFetch";
+
+
 
 const FiterNav = {
   created: "Events Created",
@@ -7,6 +10,11 @@ const FiterNav = {
 };
 
 function Profile() {
+  const { fetchEvent, eventError, isEventPending } = useFetch('http://localhost:8000/fetch_event?user_id=3');
+  
+  console.log("data", fetchEvent);
+  console.log(eventError)
+  console.log(isEventPending)
   const [activeFilter, setActiveFilter] = useState(FiterNav.created);
 
   const activeChangeHandler = (item) => {

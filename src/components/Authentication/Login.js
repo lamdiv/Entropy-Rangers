@@ -2,6 +2,37 @@ import { Link } from "react-router-dom";
 import Authorization from "./Authorization";
 
 function Login() {
+  const SubmitFormHandler = (e) =>  {
+    e.preventDefault();
+    const sample_json = {
+      "username": "sahajrajmalla",
+      "password": "password",
+      "grant_type": "password"
+
+    }
+    var formBody = [];
+    for (var property in sample_json) {
+      var encodedKey = encodeURIComponent(property);
+      var encodedValue = encodeURIComponent(sample_json[property]);
+      formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
+    fetch('http://localhost:8000/login/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: formBody
+    }).then((response) =>  {
+        console.log(response.formData);
+        console.log('New Account Posted!');
+        // history.go(-1)
+        // history.push('/home')
+    }
+
+    )
+  }
+
   return (
     <Authorization>
     <form className="w-full sm:w-[25rem]">
@@ -42,6 +73,7 @@ function Login() {
         <div className="mt-4">
           <button
             type="submit"
+            onClick={SubmitFormHandler}
             className="w-full rounded-md flex items-center justify-center gap-x-3 py-2 px-6 border text-md font-bold text-white bg-primaryDark hover:bg-primary duration-300 focus:outline-none"
           >
             Log In

@@ -2,6 +2,29 @@ import { Link } from "react-router-dom";
 import Authorization from "./Authorization";
 
 function Signup() {
+  const SubmitFormHandler = (e) =>  {
+    e.preventDefault();
+
+    // REQUEST SAMPLE
+    const sample_json = {
+        "name": "Sahaj Raj Malla",
+        "email": "sahajrajmalla123",
+        "password": "password"
+      
+    }
+
+    fetch('http://localhost:8000/user/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(sample_json)
+    }).then(() =>  {
+        console.log('New User Posted!');
+        // history.go(-1)
+        // history.push('/home')
+    }
+
+    )
+  }
   return (
     <Authorization>
       <form className="w-full sm:w-[25rem]">
@@ -43,6 +66,7 @@ function Signup() {
           <div className="mt-4">
             <button
               type="submit"
+              onClick={SubmitFormHandler}
               className="w-full rounded-md flex items-center justify-center gap-x-3 py-2 px-6 border text-md  font-bold text-white bg-primaryDark hover:bg-primary duration-300 focus:outline-none"
             >
               Register
