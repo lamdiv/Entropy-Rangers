@@ -19,6 +19,7 @@ function ForgetPassword() {
             type="email"
             placeholder="Enter your registered email"
             className="block w-full px-3 py-2 mt-1 text-gray-700  border border-gray-300 rounded-md focus:bg-white outline-none"
+            required
           />
         </div>
 

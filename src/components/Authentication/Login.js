@@ -1,41 +1,55 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Authorization from "./Authorization";
+import axios from 'axios';
+import AuthContext from "../../store/auth-context";
 
 function Login() {
-  const SubmitFormHandler = (e) =>  {
-    e.preventDefault();
-    const sample_json = {
-      "username": "sahajrajmalla",
-      "password": "password",
-      "grant_type": "password"
 
-    }
-    var formBody = [];
-    for (var property in sample_json) {
-      var encodedKey = encodeURIComponent(property);
-      var encodedValue = encodeURIComponent(sample_json[property]);
-      formBody.push(encodedKey + "=" + encodedValue);
-    }
-    formBody = formBody.join("&");
-    fetch('http://localhost:8000/login/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-        },
-        body: formBody
-    }).then((response) =>  {
-        console.log(response.formData);
-        console.log('New Account Posted!');
-        // history.go(-1)
-        // history.push('/home')
-    }
+  const [user, setUser] = useState({
+    username: '',
+    password: '',
+    
+  })
 
-    )
+  const ctx = useContext(AuthContext)
+
+  const navigate = useNavigate()
+
+
+  const onChangeHandler = (e) => {
+    setUser({...user,[e.target.name]:e.target.value})
   }
+
+  const SubmitFormHandler = async (e) =>  {
+    e.preventDefault();
+    let headersList = {
+     "Accept": "*/*",
+     "Content-Type": "application/x-www-form-urlencoded" 
+    }
+    
+
+    let bodyContent = `username=${user.username}&password=${user.password}`;
+    
+    let reqOptions = {
+      url: "https://co2-calculator-sahajrajmalla.herokuapp.com/login/",
+      method: "POST",
+      headers: headersList, 
+      data: bodyContent,
+    }
+    
+    let response = await axios.request(reqOptions);
+    // console.log(response.data);
+    ctx.onLogin(response.data)
+
+    navigate('/')
+
+  }
+
 
   return (
     <Authorization>
-    <form className="w-full sm:w-[25rem]">
+    <form className="w-full sm:w-[25rem]" onSubmit={SubmitFormHandler}>
       <div className="w-full p-3 sm:p-6 bg-white rounded-xl text-center">
         <div>
           <h2 className="text-xl font-bold">Welcome Back</h2>
@@ -47,19 +61,27 @@ function Login() {
         <div className="text-left w-full mt-6">
           <label className="text-gray-700 font-semibold">Email</label>
           <input
-            type="email"
-            placeholder="Enter your email"
-            className="block w-full px-3 py-2 mt-1 text-gray-700  border border-gray-300 rounded-md focus:bg-white outline-none"
-          />
+              type="email"
+              onChange={onChangeHandler}
+              name="username"
+              value={user.username}
+              placeholder="Enter your email"
+              className="block w-full px-3 py-2 mt-1 text-gray-700  border border-gray-300 rounded-md focus:bg-white outline-none"
+              required
+            />
         </div>
 
         <div className="text-left w-full mt-4">
           <label className="text-gray-700 font-medium">Password</label>
           <input
-            type="email"
-            placeholder="Enter your password"
-            className="block w-full px-3 py-2 mt-1 text-gray-700  border border-gray-300 rounded-md focus:bg-white outline-none"
-          />
+              type="password"
+              onChange={onChangeHandler}
+              name="password"
+              value={user.password}
+              placeholder="Enter your password"
+              className="block w-full px-3 py-2 mt-1 text-gray-700  border border-gray-300 rounded-md focus:bg-white outline-none"
+              required
+            />
         </div>
 
         <div className="flex items-center justify-end mt-3">
@@ -73,7 +95,6 @@ function Login() {
         <div className="mt-4">
           <button
             type="submit"
-            onClick={SubmitFormHandler}
             className="w-full rounded-md flex items-center justify-center gap-x-3 py-2 px-6 border text-md font-bold text-white bg-primaryDark hover:bg-primary duration-300 focus:outline-none"
           >
             Log In

@@ -5,6 +5,7 @@ import EventInfo from "./EventInfo";
 import EventLocation from "./EventLocation";
 import EventCategory from "./EventCategory";
 import Success from "./Success";
+import { useNavigate } from "react-router";
 
 function CreateEvent(props) {
   const [step, setStep] = useState(1);

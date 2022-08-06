@@ -7,8 +7,8 @@ function Home() {
   const { data, error, isPending } = useFetch('http://localhost:8000/events?skip=0&limit=100');
   
   console.log("data", data);
-  console.log(error)
-  console.log(isPending)
+  // console.log(error)
+  // console.log(isPending)
 
   return (
     <>

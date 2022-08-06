@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useFetch from "../../api/useFetch";
+import AuthContext from "../../store/auth-context";
 
 
 
@@ -12,6 +13,8 @@ const FiterNav = {
 function Profile() {
   const { fetchEvent, eventError, isEventPending } = useFetch('http://localhost:8000/fetch_event?user_id=3');
   const { fetchParticipants, participantError, isParticipantPending } = useFetch('http://localhost:8000/fetch_participants?user_id=3');
+
+  const ctx = useContext(AuthContext)
 
   console.log("fetchParticipants", fetchParticipants);
   console.log(participantError)
@@ -45,8 +48,7 @@ function Profile() {
           {/* UserInfo */}
           <div className="flex justify-between items-center">
             <div className="space-y-1">
-              <h2 className="text-lg font-bold text-dark">Diwash Lamichhane</h2>
-              <p className="text-primary font-semibold">@diwashdoe</p>
+              <h2 className="text-lg font-bold text-dark">{ctx.name}</h2>
             </div>
             <button className="text-sm font-semibold  text-dark rounded-lg bg-gray-100 px-6 py-2 h-min">
               Edit
@@ -57,7 +59,7 @@ function Profile() {
           <div className="flex flex-col shadow p-4 space-y-5 rounded-lg">
             <div className="text-dark text-sm space-y-1">
               <h4 className="font-semibold">Email</h4>
-              <p className="font-bold">diwash.happycoder@gmail.com</p>
+              <p className="font-bold">{ctx.email}</p>
             </div>
 
             <div className="flex justify-between items-center">
