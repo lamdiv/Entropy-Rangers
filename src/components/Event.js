@@ -91,7 +91,7 @@ function Event() {
                 </div>
                 <div className="flex w-full items-center justify-between space-x-2">
                   <Link
-                    to="/"
+                    to="/event/calculate"
                     className="p-2 w-1/3 h-full text-sm md:text-lg self-center font-semibold text-white bg-primaryDark rounded-xl"
                   >
                     Join

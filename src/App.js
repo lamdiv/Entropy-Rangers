@@ -10,6 +10,7 @@ import { useState } from "react";
 import CreateEvent from "./components/CreateEvent/CreateEvent";
 import Profile from "./components/Authentication/Profile";
 import Event from "./components/Event";
+import JoinEvent from "./components/JoinEvent/JoinEvent";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/event" element={<Event />} />
+        <Route exact path="/event/calculate" element={<JoinEvent />} />
         <Route exact path="/account/login" element={<Login />} />
         <Route exact path="/account/register" element={<Signup />} />
         <Route exact path="/account/forget-password" element={<ForgetPassword />} />
