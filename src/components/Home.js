@@ -134,8 +134,8 @@ function Home() {
                 </div>
                 <div className="flex w-full justify-between space-x-2">
                   <Link
-                    to="/"
-                    className="p-2 w-1/3 h-full text-sm lg:text-xl text-center self-center font-bold text-white bg-primaryDark rounded-xl"
+                    to="/event"
+                    className="p-2 w-1/3 h-full text-sm md:text-lg lg:text-xl text-center self-center font-semibold text-white bg-primaryDark rounded-xl"
                   >
                     View
                     <br />
@@ -215,9 +215,9 @@ function Home() {
 
               <div className="flex flex-col justify-between space-y-6 text-center md:text-start">
                 <div className="space-y-2">
-                  <h3 className="text-xl font-semibold text-dark ">
+                  <Link to="/event" className="text-xl font-semibold text-primary cursor-pointer ">
                     Open Space Challenge
-                  </h3>
+                  </Link>
                   <p className="text-md text-dark">Kathmandu, Nepal</p>
                   <p className="text-sm text-dark">12:00 PM Oct 12</p>
                 </div>
@@ -271,9 +271,9 @@ function Home() {
 
               <div className="flex flex-col justify-between space-y-6 text-center md:text-start">
                 <div className="space-y-2">
-                  <h3 className="text-xl font-semibold text-dark ">
+                  <Link to="/event" className="text-xl font-semibold text-primary cursor-pointer ">
                     Open Space Challenge
-                  </h3>
+                  </Link>
                   <p className="text-md text-dark">Kathmandu, Nepal</p>
                   <p className="text-sm text-dark">12:00 PM Oct 12</p>
                 </div>
@@ -327,9 +327,9 @@ function Home() {
 
               <div className="flex flex-col justify-between space-y-6 text-center md:text-start">
                 <div className="space-y-2">
-                  <h3 className="text-xl font-semibold text-dark ">
+                  <Link to="/event" className="text-xl font-semibold text-primary cursor-pointer ">
                     Open Space Challenge
-                  </h3>
+                  </Link>
                   <p className="text-md text-dark">Kathmandu, Nepal</p>
                   <p className="text-sm text-dark">12:00 PM Oct 12</p>
                 </div>
@@ -383,9 +383,9 @@ function Home() {
 
               <div className="flex flex-col justify-between space-y-6 text-center md:text-start">
                 <div className="space-y-2">
-                  <h3 className="text-xl font-semibold text-dark ">
+                  <Link to="/event" className="text-xl font-semibold text-primary cursor-pointer ">
                     Open Space Challenge
-                  </h3>
+                  </Link>
                   <p className="text-md text-dark">Kathmandu, Nepal</p>
                   <p className="text-sm text-dark">12:00 PM Oct 12</p>
                 </div>
@@ -439,9 +439,9 @@ function Home() {
 
               <div className="flex flex-col justify-between space-y-6 text-center md:text-start">
                 <div className="space-y-2">
-                  <h3 className="text-xl font-semibold text-dark ">
+                  <Link to="/event" className="text-xl font-semibold text-primary cursor-pointer ">
                     Open Space Challenge
-                  </h3>
+                  </Link>
                   <p className="text-md text-dark">Kathmandu, Nepal</p>
                   <p className="text-sm text-dark">12:00 PM Oct 12</p>
                 </div>
@@ -495,9 +495,9 @@ function Home() {
 
               <div className="flex flex-col justify-between space-y-6 text-center md:text-start">
                 <div className="space-y-2">
-                  <h3 className="text-xl font-semibold text-dark ">
+                  <Link to="/event" className="text-xl font-semibold text-primary cursor-pointer ">
                     Open Space Challenge
-                  </h3>
+                  </Link>
                   <p className="text-md text-dark">Kathmandu, Nepal</p>
                   <p className="text-sm text-dark">12:00 PM Oct 12</p>
                 </div>

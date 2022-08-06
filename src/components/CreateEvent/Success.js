@@ -1,4 +1,8 @@
-function Success() {
+import { useEffect } from "react";
+import { Link, Redirect } from "react-router-dom";
+
+
+function Success(props) {
  
   return (
     <div className="text-center p-4">
@@ -30,7 +34,7 @@ function Success() {
     </div>
     <h2 className="text-xl font-semibold mt-4">Event has been Created!</h2>
 
-    <p className='mt-6 font-bold text-primary cursor-pointer'>Go to Event Page</p>
+    <Link to="/event" className='mt-6 font-bold text-primary cursor-pointer'>Go to Event Page</Link>
   </div>
   )
 }

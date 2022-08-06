@@ -27,7 +27,7 @@ function Navbar(props) {
           {/* <!-- Logo --> */}
           <Link to="/">
             <div className="text-xl  font-bold">
-              Intropy{" "}
+              Entropy{" "}
               <span className="text-primary font-extrabold">RANGERS</span>
             </div>
           </Link>
@@ -64,7 +64,7 @@ function Navbar(props) {
               <div className="absolute flex flex-col w-[400px] top-14 space-y-4 -left-5 px-6 py-4 z-10 bg-white shadow-md rounded-xl">
                 <div className="space-y-2">
                   <Link
-                    to="/account/user"
+                    to="/event"
                     className="cursor-pointer text-md text-dark font-semibold"
                   >
                     Open Session On BlockChain, #12502{" "}
@@ -73,9 +73,9 @@ function Navbar(props) {
                   <hr />
                 </div>
                 <div className="space-y-2">
-                  <h2 className=" cursor-pointer text-md text-dark font-semibold">
+                  <Link to="/event" className=" cursor-pointer text-md text-dark font-semibold">
                     Open Session On BlockChain, #12502{" "}
-                  </h2>
+                  </Link >
                   <p className="text-xs">Butwal, July 2022</p>
                   <hr />
                 </div>

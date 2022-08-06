@@ -12,7 +12,7 @@ function Footer() {
         >
           {/* <!-- Footer Info --> */}
           <Link to="/"><div className="text-xl  font-bold">
-            Intropy <span className="text-primary font-extrabold">RANGERS</span>
+            Entropy <span className="text-primary font-extrabold">RANGERS</span>
             
           </div></Link>
           

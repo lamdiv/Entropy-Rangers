@@ -84,7 +84,7 @@ function CreateEvent(props) {
       break;
 
     case 4:
-      formComponent = <Success/>;
+      formComponent = <Success onDispatch={closeEventModal}/>;
       break;
 
     default:
