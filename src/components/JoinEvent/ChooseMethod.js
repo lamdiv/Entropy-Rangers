@@ -1,6 +1,12 @@
 import React from "react";
 
 function ChooseMethod(props) {
+
+  const inactiveClass = "flex flex-col items-center space-y-2 p-10 rounded-xl border border-dark "
+
+  const activeClass = "flex flex-col items-center space-y-2 p-10 rounded-xl border border-dark bg-[#DEFFCE]"
+
+
   return (
     <>
       <div className="mt-12 flex flex-col">
@@ -8,8 +14,8 @@ function ChooseMethod(props) {
         <p className="text-md text-dark">
           Lorem ipsum dolor sit amet, onsectetur adipiscing elit.{" "}
         </p>
-        <div className="flex space-x-5 mt-10 ">
-          <div className="flex flex-col items-center space-y-2 p-10 rounded-xl border border-dark ">
+        <div className="flex space-x-5 mt-5 ">
+          <div onClick={(e)=>props.onChange(e,{method:'online'})} className={props.values.method==='online'?activeClass:inactiveClass}>
             <svg
               width="20"
               height="25"
@@ -32,7 +38,7 @@ function ChooseMethod(props) {
             </svg>
             <p>Onsite</p>
           </div>
-          <div className="flex flex-col items-center space-y-2 p-10 rounded-xl border border-dark ">
+          <div onClick={(e)=>props.onChange(e,{method:'offline'})} className={props.values.method==='offline'?activeClass:inactiveClass}>
             <svg
               width="20"
               height="25"
@@ -53,7 +59,7 @@ function ChooseMethod(props) {
                 fill="black"
               />
             </svg>
-            <p>Onsite</p>
+            <p>Offline</p>
           </div>
         </div>
       </div>

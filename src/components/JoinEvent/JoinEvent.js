@@ -7,25 +7,24 @@ import DietryCategory from "./DietryCategory";
 import Electricity from "./Electricity";
 import Transportation from "./Transportation";
 
-
-
 const ActiveText = [
-    'How would you like to join this event?',
-    'Where you will be joining from?',
-    'How are you planning to travel?',
-    'What is your food type?',
-    'What type of electricity you consume?',
+  "How would you like to join this event?",
+  "Where you will be joining from?",
+  "How are you planning to travel?",
+  "What is your food type?",
+  "What type of electricity you consume?",
 ];
 
 function JoinEvent() {
-    const [step, setStep] = useState(1);
-    const [parameters, setParameters] = useState({
-      method: "",
-      location: "",
-      transportation: '',
-      food_type: "",
-      food_quantity: "",
-    });
+  const [step, setStep] = useState(1);
+  const [carbonAmount, setcarbonAmount] = useState(0);
+  const [parameters, setParameters] = useState({
+    method: "",
+    location: "",
+    transportation: "",
+    food_type: "",
+    food_quantity: "",
+  });
 
   useEffect(() => {
     let navbar = document.querySelector("#navbar");
@@ -44,7 +43,6 @@ function JoinEvent() {
     };
   }, []);
 
-
   const prevStep = () => {
     setStep((prevState) => prevState - 1);
   };
@@ -54,42 +52,63 @@ function JoinEvent() {
     setStep((prevState) => prevState + 1);
   };
 
+  const onParameterChange = (e, name) => {
+    if (name) {
+      setParameters({ ...parameters, ...name });
+    } else {
+      setParameters({ ...parameters, [e.target.name]: e.target.value });
+    }
+  };
+
+  console.log(parameters);
+
   // Switching between form component
   let formComponent;
   switch (step) {
     case 1:
-       // setActiveTitle('')
+      // setActiveTitle('')
       formComponent = (
         <ChooseMethod
-        nextStep={nextStep}
+          nextStep={nextStep}
+          values={parameters}
+          onChange={onParameterChange}
         />
       );
-
-
       break;
 
     case 2:
       formComponent = (
-        <ChooseLocation nextStep={nextStep} prevStep={prevStep}/>
+        <ChooseLocation
+          nextStep={nextStep}
+          prevStep={prevStep}
+          values={parameters}
+          onChange={onParameterChange}
+        />
       );
       break;
     case 3:
       formComponent = (
-        <Transportation nextStep={nextStep} prevStep={prevStep} />
+        <Transportation
+          nextStep={nextStep}
+          prevStep={prevStep}
+          values={parameters}
+          onChange={onParameterChange}
+        />
       );
       break;
 
     case 4:
-      formComponent = <DietryCategory  nextStep={nextStep} prevStep={prevStep}/>;
+      formComponent = (
+        <DietryCategory nextStep={nextStep} prevStep={prevStep} />
+      );
       break;
 
     case 5:
-      formComponent = <Electricity  nextStep={nextStep} prevStep={prevStep}/>;
+      formComponent = <Electricity nextStep={nextStep} prevStep={prevStep} />;
       break;
 
     default:
-    
-    return formComponent;
+      return formComponent;
   }
 
   return (
@@ -99,7 +118,7 @@ function JoinEvent() {
           Entropy <span className="text-white font-extrabold">RANGERS</span>
         </Link>
         <div className="flex flex-col h-full justify-center w-full text-white text-5xl font-bold">
-          {ActiveText[step-1]}
+          {ActiveText[step - 1]}
         </div>
       </div>
       <div className="w-1/2 flex flex-col justify-between px-12 py-10">
@@ -151,13 +170,13 @@ function JoinEvent() {
           </Popover>
 
           <div className="mt-8 flex space-x-5 items-center">
-            <div className="p-5 text-primary font-bold self-center border-2 border-primary rounded-full">
-              0kg
+            <div className="p-5 text-primary font-bold self-center border-2 border-primary rounded-[50%]">
+              {carbonAmount}KG
             </div>
             <h1 className="text-md font-semibold text-dark">
               Live Carbon Counter
             </h1>
-          </div> 
+          </div>
         </div>
         {formComponent}
       </div>
