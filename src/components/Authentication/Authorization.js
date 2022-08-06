@@ -24,7 +24,7 @@ function Authorization(props) {
           <div className="w-full bg-[#1E4A01] h-screen flex justify-center items-center flex-col p-2">
             {/* <Link to="/"> */}
             <Link to="/" className="text-xl text-primary mb-6 font-bold">
-            Carbon <span className="text-white font-extrabold">RANGERS</span>
+            Entropy <span className="text-white font-extrabold">RANGERS</span>
           </Link>
             {/* </Link> */}
             {props.children}
