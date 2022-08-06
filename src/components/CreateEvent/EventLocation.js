@@ -1,6 +1,13 @@
 import React from 'react'
+import useFetch from "../../api/useFetch";
 
 function EventLocation(props) {
+  const { fetchLatLng, latlngError, isLatLngPending } = useFetch('http://localhost:8000/fetch_lat_lng?address=New York');
+
+  console.log("fetchLatLng", fetchLatLng);
+  console.log(latlngError)
+  console.log(isLatLngPending)
+
   return (
     <div className="py-8 px-4">
     <h2 className="text-2xl text-dark xxl:text-2xl font-bold">

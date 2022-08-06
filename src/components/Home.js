@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import useFetch from "../api/useFetch";
+import useFetch from "../api/useFetch";
 
 
 function Home() {
-  // const { data, error, isPending } = useFetch('http://localhost:8000/get_factor_data');
+  const { data, error, isPending } = useFetch('http://localhost:8000/events?skip=0&limit=100');
   
-  // console.log("data", data);
-  // console.log(error)
-  // console.log(isPending)
+  console.log("data", data);
+  console.log(error)
+  console.log(isPending)
 
   return (
     <>

@@ -11,8 +11,13 @@ const FiterNav = {
 
 function Profile() {
   const { fetchEvent, eventError, isEventPending } = useFetch('http://localhost:8000/fetch_event?user_id=3');
-  
-  console.log("data", fetchEvent);
+  const { fetchParticipants, participantError, isParticipantPending } = useFetch('http://localhost:8000/fetch_participants?user_id=3');
+
+  console.log("fetchParticipants", fetchParticipants);
+  console.log(participantError)
+  console.log(isParticipantPending)
+
+  console.log("fetchEvent", fetchEvent);
   console.log(eventError)
   console.log(isEventPending)
   const [activeFilter, setActiveFilter] = useState(FiterNav.created);

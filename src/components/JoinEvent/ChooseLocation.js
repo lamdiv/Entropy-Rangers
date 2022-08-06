@@ -1,6 +1,13 @@
 import React from 'react'
+import useFetch from "../../api/useFetch";
 
 function ChooseLocation(props) {
+  const { data, error, isPending } = useFetch('http://localhost:8000/get_factor_data');
+  
+  console.log("data", data);
+  console.log(error)
+  console.log(isPending)
+
   return (
     <>
     <div className="mt-12 flex flex-col">

@@ -6,6 +6,7 @@ import ChooseMethod from "./ChooseMethod";
 import DietryCategory from "./DietryCategory";
 import Electricity from "./Electricity";
 import Transportation from "./Transportation";
+import useFetch from "../../api/useFetch";
 
 const ActiveText = [
   "How would you like to join this event?",
@@ -25,6 +26,37 @@ function JoinEvent() {
     food_type: "",
     food_quantity: "",
   });
+  const { fetchLatLng, latlngError, isLatLngPending } = useFetch('http://localhost:8000/fetch_lat_lng?address=New York');
+
+  console.log("fetchLatLng", fetchLatLng);
+  console.log(latlngError)
+  console.log(isLatLngPending)
+
+
+  const { fetchGeoDistance, geoDistanceError, isGeoDistancePending } = useFetch('http://localhost:8000/get_geodesic_distance?lat1=40.730610&lon1=-73.935242&lat2=40.730610&lon2=-73.935242');
+
+  console.log("fetchGeoDistance", fetchGeoDistance);
+  console.log(geoDistanceError)
+  console.log(isGeoDistancePending)
+
+  const { fetchFactorData, factorDataError, isFactorDataPending } = useFetch('http://localhost:8000/get_factor_data');
+
+  console.log("fetchFactorData", fetchFactorData);
+  console.log(factorDataError)
+  console.log(isFactorDataPending)
+
+  const { fetchSourceAirport, sourceAirportError, isSourceAirportPending } = useFetch('http://localhost:8000/get_nearest_airport?lat=40.730610&lon=-73.935242');
+
+  console.log("fetchSourceAirport", fetchSourceAirport);
+  console.log(sourceAirportError)
+  console.log(isSourceAirportPending)
+
+  const { fetchDestinationAirport, destinationAirportError, isDestinationAirportPending } = useFetch('http://localhost:8000/get_nearest_airport?lat=40.730610&lon=-73.935242');
+
+  console.log("fetchDestinationAirport", fetchDestinationAirport);
+  console.log(destinationAirportError)
+  console.log(isDestinationAirportPending)
+
 
   useEffect(() => {
     let navbar = document.querySelector("#navbar");
