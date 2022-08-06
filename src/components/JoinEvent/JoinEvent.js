@@ -24,7 +24,7 @@ function JoinEvent() {
     location: "",
     transportation: "",
     food_type: "",
-    food_quantity: "",
+    food_quantity: 0,
   });
   const { fetchLatLng, latlngError, isLatLngPending } = useFetch('http://localhost:8000/fetch_lat_lng?address=New York');
 
@@ -131,12 +131,16 @@ function JoinEvent() {
 
     case 4:
       formComponent = (
-        <DietryCategory nextStep={nextStep} prevStep={prevStep} />
+        <DietryCategory  nextStep={nextStep}
+        prevStep={prevStep}
+        values={parameters}
+        onChange={onParameterChange} />
       );
       break;
 
     case 5:
-      formComponent = <Electricity nextStep={nextStep} prevStep={prevStep} />;
+      formComponent = <Electricity nextStep={nextStep} prevStep={prevStep} values={parameters}
+      onChange={onParameterChange} />;
       break;
 
     default:

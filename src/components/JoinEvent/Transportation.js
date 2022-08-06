@@ -2,18 +2,18 @@ import React from "react";
 
 function Transportation(props) {
   const inactiveClass =
-    "flex flex-col w-full items-center space-y-2 p-5 rounded-xl border border-dark";
+    "flex flex-col w-full items-center space-y-2 p-3 rounded-xl border border-dark";
 
   const activeClass =
-    "flex flex-col w-full items-center space-y-2 p-5 rounded-xl border border-dark bg-[#DEFFCE]";
+    "flex flex-col w-full items-center space-y-2 p-3 rounded-xl border border-dark bg-[#DEFFCE]";
   return (
     <>
-      <div className="mt-12 flex flex-col">
+      <div className="mt-5 flex flex-col">
         <h1 className="text-2xl font-semibold text-dark">Transportation</h1>
         <p className="text-md text-dark">
           Lorem ipsum dolor sit amet, onsectetur adipiscing elit.{" "}
         </p>
-        <div className="grid grid-cols-4 mt-5 gap-2 ">
+        <div className="grid grid-cols-4 mt-5 gap-2 text-center items-center ">
           {/* Hybrid car */}
           <div
             onClick={(e) => props.onChange(e, { transportation: "Hybrid Car" })}
@@ -255,7 +255,7 @@ function Transportation(props) {
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-between">
+      <div className="flex mt-5 flex-row justify-between">
         <h3
           onClick={props.prevStep}
           className="font-bold justify-end text-dark cursor-pointer text-lg"
