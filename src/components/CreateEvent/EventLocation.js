@@ -2,16 +2,11 @@ import React from 'react'
 import useFetch from "../../api/useFetch";
 
 function EventLocation(props) {
-  const { fetchLatLng, latlngError, isLatLngPending } = useFetch('http://localhost:8000/fetch_lat_lng?address=New York');
-
-  console.log("fetchLatLng", fetchLatLng);
-  console.log(latlngError)
-  console.log(isLatLngPending)
 
   return (
     <div className="py-8 px-4">
     <h2 className="text-2xl text-dark xxl:text-2xl font-bold">
-    When, Where and How?
+    When and Where?
     </h2>
     <p className="text-sm text-dark">
       {" "}
@@ -25,6 +20,17 @@ function EventLocation(props) {
         value={props.values.location}
         onChange={(e) => props.onChange(e)}
         placeholder="Where is it happening?"
+        className="block w-full px-3 py-2 mt-1 text-gray-700  border border-gray-300 rounded-md focus:bg-white outline-none"
+      />
+    </div>
+    <div className="text-left w-full mt-4">
+      <label className="text-gray-700 font-medium">Date</label>
+      <input
+        type="date"
+        name='date'
+        value={props.values.date}
+        onChange={(e) => props.onChange(e)}
+        placeholder="Enter the  of the event"
         className="block w-full px-3 py-2 mt-1 text-gray-700  border border-gray-300 rounded-md focus:bg-white outline-none"
       />
     </div>

@@ -11,10 +11,14 @@ const FiterNav = {
 };
 
 function Profile() {
-  const { fetchEvent, eventError, isEventPending } = useFetch('http://localhost:8000/fetch_event?user_id=3');
-  const { fetchParticipants, participantError, isParticipantPending } = useFetch('http://localhost:8000/fetch_participants?user_id=3');
-
   const ctx = useContext(AuthContext)
+  
+  const [activeCategory, setActiveCategory] = useState('joined')
+
+  const { fetchEvent, eventError, isEventPending } = useFetch(`https://co2-calculator-sahajrajmalla.herokuapp.com/fetch_event?user_id=${ctx.userId}`);
+  const { fetchParticipants, participantError, isParticipantPending } = useFetch(`https://co2-calculator-sahajrajmalla.herokuapp.com/fetch_participants?user_id=${ctx.userId}`);
+
+  
 
   console.log("fetchParticipants", fetchParticipants);
   console.log(participantError)

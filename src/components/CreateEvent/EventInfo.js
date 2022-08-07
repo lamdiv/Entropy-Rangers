@@ -25,8 +25,8 @@ function EventInfo(props) {
       <div className="text-left w-full mt-4">
         <label className="text-gray-700 font-medium">Description</label>
         <textarea
-          name="desciption"
-          value={props.values.desciption}
+          name="description"
+          value={props.values.description}
           onChange={(e) => props.onChange(e)}
           placeholder="Enter Description"
           className="block w-full px-3 py-2 mt-1 text-gray-700  border border-gray-300 rounded-md focus:bg-white outline-none"

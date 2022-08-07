@@ -41,7 +41,7 @@ function App() {
         <CreateEvent open={IsmodalOpen} closeModalHandler={closeModalHandler}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/event" element={<Event />} />
+          <Route exact path="/event/:id" element={<Event />} />
           <Route exact path="/account/login" element={<Login />} />
           <Route exact path="/account/register" element={<Signup />} />
           <Route

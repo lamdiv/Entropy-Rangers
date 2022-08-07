@@ -1,8 +1,13 @@
 import React from "react";
+import useFetch from "../../api/useFetch";
 
 function EventCategory(props) {
+
+  // const { fetchLatLng, latlngError, isLatLngPending } = useFetch(`https://co2-calculator-sahajrajmalla.herokuapp.com/fetch_lat_lng?address=${props.values.location}`);
+
+  
+
   const SubmitFormHandler = (e) =>  {
-    console.log('props.values', props.values);
     props.nextStep();
     e.preventDefault();
     // const blog = {
@@ -12,30 +17,31 @@ function EventCategory(props) {
     // }
     // console.log(blog);
 
-    // REQUEST SAMPLE
-    const sample_json = {
-      "name": "string",
-      "description": "string",
-      "lat": 0,
-      "lon": 0,
-      "year": 0,
-      "month": 0,
-      "day": 0,
-      "hour": 0,
-      "minute": 0,
-      "thumbnail": "string",
-      "user_id": 123,
-      "id": 0,
-      "created_at": "2022-08-06T12:53:17.993Z",
-      "modified_at": "2022-08-06T12:53:17.993Z"
-    }
 
-    fetch('http://localhost:8000/events/', {
+    // REQUEST SAMPLE
+    // const sample_json = {
+    //   "name": "string",
+    //   "description": "string",
+
+    //   "date": 0,
+    //   "time": 0,
+    //   "day": 0,
+    //   "hour": 0,
+    //   "minute": 0,
+    //   "thumbnail": "string",
+    //   "user_id": 123,
+    //   "id": 0,
+    //   "created_at": "2022-08-06T12:53:17.993Z",
+    //   "modified_at": "2022-08-06T12:53:17.993Z"
+    // }
+
+    fetch('https://co2-calculator-sahajrajmalla.herokuapp.com/events/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(sample_json)
-    }).then(() =>  {
-        console.log('New Blod Posted!');
+        body: JSON.stringify(props.values)
+    }).then((response) =>  {
+      console.log(response)
+        console.log('New Event Posted!');
         // history.go(-1)
         // history.push('/home')
     }
@@ -68,16 +74,6 @@ function EventCategory(props) {
           <option value="Online">Online</option>
           <option value="Hybrid">Hybrid</option>
         </select>
-      </div>
-      <div className="text-left w-full mt-4">
-        <label className="text-gray-700 font-medium">Thumbnail</label>
-        <input
-          type="file"
-          name="thumbnail"
-          value={props.values.thumbnail}
-          onChange={(e) => props.onChange(e)}
-          className="block w-full px-3 py-2 mt-1 text-gray-700  border border-gray-300 rounded-md focus:bg-white outline-none"
-        />
       </div>
       <div className="flex space-x-2 justify-between mt-4">
         <button

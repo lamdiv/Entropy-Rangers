@@ -21,6 +21,7 @@ export const AuthContextProvider = (props) => {
         let response = await axios.request(`https://co2-calculator-sahajrajmalla.herokuapp.com/user/${id}`);
         setEmail(response.data.email)
         setName(response.data.name)
+        setUserId(id)
         setIsLoggedIn(true);
         console.log(response.data)
     }

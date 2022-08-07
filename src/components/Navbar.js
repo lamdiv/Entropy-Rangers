@@ -275,7 +275,7 @@ function Navbar(props) {
                   </Popover.Button>
                 ) : (
                   (
-                    <Link to="/account/login">
+                    <Link to='/account/login/'>
                     <div className="outline-none py-2 px-6 font-semibold border border-dark text-dark rounded-full">
                       {" "}
                       <div className="flex space-x-3 items-center">
