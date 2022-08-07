@@ -5,6 +5,7 @@ import EventInfo from "./EventInfo";
 import EventLocation from "./EventLocation";
 import EventCategory from "./EventCategory";
 import Success from "./Success";
+import { useNavigate } from "react-router";
 
 function CreateEvent(props) {
   const [step, setStep] = useState(1);
@@ -12,23 +13,25 @@ function CreateEvent(props) {
     name: "",
     description: "",
     location: "",
-    time: '',
-    type: "",
-    thumbnail: "",
+    lat: 0,
+    lng: 0,
+    date: "",
+    time: "",
+    type: "Physical",
   });
 
   // Clearing Form  and step after creating event
-  const clearForm = () =>{
+  const clearForm = () => {
     setFormField({
       name: "",
       description: "",
       location: "",
-      time: '',
-      type: "",
-      thumbnail: "",
-    })
-    setStep(1)
-  }
+      date: "",
+      time: "",
+      type: "Physical",
+    });
+    setStep(1);
+  };
 
   // Form Component Increament
   const prevStep = () => {
@@ -41,14 +44,17 @@ function CreateEvent(props) {
   };
 
   // Form field value change
-  const onChangeHandler = (e) => {
+  const onChangeHandler = (e, latLng) => {
+    if (latLng) {
+      setFormField({ ...formField, ...latLng });
+    }
     setFormField({ ...formField, [e.target.name]: e.target.value });
   };
 
   //Passing Clear fuction to parent
   const closeEventModal = () => {
-    props.closeModalHandler(clearForm)
-  }
+    props.closeModalHandler(clearForm);
+  };
 
   // Switching between form component
   let formComponent;
@@ -77,6 +83,7 @@ function CreateEvent(props) {
         <EventCategory
           prevStep={prevStep}
           nextStep={nextStep}
+          setFormField = {setFormField}
           onChange={onChangeHandler}
           values={formField}
         />
@@ -84,12 +91,11 @@ function CreateEvent(props) {
       break;
 
     case 4:
-      formComponent = <Success onDispatch={closeEventModal}/>;
+      formComponent = <Success onDispatch={closeEventModal} />;
       break;
 
     default:
-    
-    return formComponent;
+      return formComponent;
   }
 
   return (
@@ -148,9 +154,7 @@ function CreateEvent(props) {
                 </div>
               </div>
               <div className="text-center mt-4">
-                <form encType='multipart/form-data'>
-                  {formComponent}
-                </form>
+                <form encType="multipart/form-data">{formComponent}</form>
               </div>
             </Dialog.Panel>
           </div>
