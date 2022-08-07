@@ -13,7 +13,7 @@ const FiterNav = {
 function Profile() {
   const ctx = useContext(AuthContext)
   
-  const [activeCategory, setActiveCategory] = useState('joined')
+  const [activeCategory, setActiveCategory] = useState('')
 
   const { fetchEvent, eventError, isEventPending } = useFetch(`https://co2-calculator-sahajrajmalla.herokuapp.com/fetch_event?user_id=${ctx.userId}`);
   const { fetchParticipants, participantError, isParticipantPending } = useFetch(`https://co2-calculator-sahajrajmalla.herokuapp.com/fetch_participants?user_id=${ctx.userId}`);
@@ -103,7 +103,7 @@ function Profile() {
                 <div className="relative w-full h-[150px]">
                   <img
                     className="mb-10 z-1 w-full h-full  object-cover rounded-2xl md:mb-0"
-                    src="https://auraed.org/assets/images/about.webp"
+                    src="https://source.unsplash.com/random/200x200?sig=1"
                     alt="story"
                   />
                   <div className="cursor-pointer absolute bottom-2 right-2 bg-white rounded-full p-2">
@@ -159,7 +159,7 @@ function Profile() {
                 <div className="relative w-full h-[150px]">
                   <img
                     className="mb-10 z-1 w-full h-full  object-cover rounded-2xl md:mb-0"
-                    src="https://auraed.org/assets/images/about.webp"
+                    src="https://source.unsplash.com/random/200x200?sig=1"
                     alt="story"
                   />
                   <div className="cursor-pointer absolute bottom-2 right-2 bg-white rounded-full p-2">

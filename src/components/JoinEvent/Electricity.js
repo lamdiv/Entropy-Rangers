@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, Navigate } from 'react-router-dom';
 
 function Electricity(props) {
   const SubmitFormHandler = (e) =>  {
@@ -115,12 +116,13 @@ function Electricity(props) {
       >
         Back
       </h3>
-      <button
+      <Navigate 
+      to="/event/1"
       onClick={SubmitFormHandler}
         className="font-bold justify-end text-primary cursor-pointer text-lg"
       >
         Calculate Now
-      </button>
+      </Navigate>
     </div>
   </>
   )
